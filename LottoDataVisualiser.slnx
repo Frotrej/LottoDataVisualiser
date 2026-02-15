@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Lotto.Tests/Lotto.Tests.csproj" Id="1ce4603e-37cc-4123-a728-5fb6718ced3f" />
   <Project Path="LottoDataVisualiser/LottoDataVisualiser.csproj" />
 </Solution>
