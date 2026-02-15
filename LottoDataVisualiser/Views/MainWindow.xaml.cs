@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,8 +21,10 @@ namespace LottoDataVisualiser
         {
             InitializeComponent();
             
+            
 
+		}
 
-        }
-    }
+		
+	}
 }

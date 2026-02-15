@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LottoDataVisualiser.Services
+namespace LottoDataVisualiser.ViewModels
 {
-	internal class LottoAPIservice
+	internal class Class1
 	{
 	}
 }

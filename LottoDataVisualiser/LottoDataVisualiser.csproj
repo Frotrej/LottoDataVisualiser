@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Folder Include="Services\LottoEndPoints\" />
   </ItemGroup>
 
 </Project>

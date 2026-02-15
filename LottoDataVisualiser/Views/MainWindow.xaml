@@ -27,6 +27,7 @@
         <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
             <ScrollViewer>
                 <StackPanel x:Name="MainStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBox x:Name="LottoApiResponse" TextWrapping="Wrap" Text="TextBox" Width="auto" Height="auto"/>
 
 
                 </StackPanel>
