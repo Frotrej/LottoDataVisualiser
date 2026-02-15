@@ -1,4 +1,4 @@
-﻿using LottoDataVisualiser.Services;
+﻿using LottoApp.Services;
 
 namespace Lotto.Tests
 {

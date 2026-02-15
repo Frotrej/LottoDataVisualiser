@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LottoDataVisualiser\LottoDataVisualiser.csproj" />
+    <ProjectReference Include="..\LottoDataVisualiser\LottoApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

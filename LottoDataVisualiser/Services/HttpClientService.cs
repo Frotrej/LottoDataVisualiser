@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace LottoDataVisualiser.Services
+namespace LottoApp.Services
 {
 	public class HttpClientService
 	{

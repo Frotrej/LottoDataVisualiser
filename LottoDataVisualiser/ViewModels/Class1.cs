@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LottoDataVisualiser.ViewModels
+namespace LottoApp.ViewModels
 {
 	internal class Class1
 	{
