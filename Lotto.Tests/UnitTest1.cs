@@ -32,3 +32,9 @@ namespace Lotto.Tests
 
 	}
 }
+/*wymagane we właściwym projekcie, by testy mogły się kompilować
+ public int GetResults(int a, int b)
+		{
+			return a * b;
+		}
+ */

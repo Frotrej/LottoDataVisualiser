@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace LottoApp.Services
+namespace LottoApp.Services.APIServices
 {
 	public class HttpClientService
 	{
@@ -18,10 +18,11 @@ namespace LottoApp.Services
 			httpClient.BaseAddress = baseUrlAsUri;
 		}
 
-		public int GetResults(int a, int b)
+		public HttpClient GetHttpClient()
 		{
-			return a * b;
+			return httpClient;
 		}
+
 
 	}
 }
