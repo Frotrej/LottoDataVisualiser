@@ -1,13 +1,14 @@
-﻿using System.ComponentModel;
+﻿using LottoApp.Models.Lotto;
+using System.ComponentModel;
 
 namespace LottoApp.ViewModels
 {
-	internal class MainViewModel : INotifyPropertyChanged
+	internal class LottoViewModel : INotifyPropertyChanged
 	{
 
-		private Models.LottoGameResult _lottoResult = null!;
+		private LastDraw _lottoResult = null!;
 
-		public Models.LottoGameResult LottoResult
+		public LastDraw LottoResult
 		{
 			get => _lottoResult;
 			set
@@ -16,15 +17,17 @@ namespace LottoApp.ViewModels
 				OnPropertyChanged(nameof(LottoResult));
 			}
 		}
-		public MainViewModel()
+		public LottoViewModel()
 		{
 			LoadDataFromApi();
 		}
 		private async void LoadDataFromApi()
 		{
-			string RawAPIResponse = await new Services.LottoEndPoints.GetLastWin().GetRaw();
+			string RawAPIResponse = await new Services.LottoEndPoints.GetLastDraw().GetRaw();
 
-			LottoResult = new Models.LottoGameResult(" ", DateTime.Now, new int[6], 0, 0, RawAPIResponse);
+
+
+			LottoResult = new LastDraw(RawAPIResponse);
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;
