@@ -1,10 +1,11 @@
 ﻿using System.Net.Http;
+using System.Text.Json;
 
 namespace LottoApp.Services.LottoEndPoints
 {
-	internal class GetLastDraw
+	internal class LottoLastDraw
 	{
-		public async Task<string> GetRaw()
+		public async Task<string> Get()
 		{
 			HttpResponseMessage rawResponse = await MakeCall();
 
@@ -12,13 +13,6 @@ namespace LottoApp.Services.LottoEndPoints
 
 			return rawJson;
 		}
-		/*public async Task<Models.LastDraw> GetDeserialized()
-		{
-			HttpResponseMessage rawResponse = await MakeCall();
-			string rawJson = await rawResponse.Content.ReadAsStringAsync();
-			Models.LastDraw deserializedResponse = System.Text.Json.JsonSerializer.Deserialize<Models.LastDraw>(rawJson);
-			return deserializedResponse;
-		}*/
 
 		private async Task<HttpResponseMessage> MakeCall()
 		{

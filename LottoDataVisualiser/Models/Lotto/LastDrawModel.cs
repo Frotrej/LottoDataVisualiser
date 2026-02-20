@@ -1,40 +1,36 @@
 ﻿namespace LottoApp.Models.Lotto
 {
-	internal class LastDraw
+	internal class LastDrawModel
 	{
 		public string GameName { get; set; }
 		public DateTime DrawDate { get; set; }
 		public int[] WinningNumbers { get; set; }
-		public int BonusNumber { get; set; }
-		public int JackpotAmount { get; set; }
+		public int[] BonusNumbers { get; set; }
 		public string RawResponse { get; set; }
 
 
-		public LastDraw(string gameName, DateTime drawDate, int[] winningNumbers, int bonusNumber, int jackpotAmount, string rawResponse)
+		public LastDrawModel(string gameName, DateTime drawDate, int[] winningNumbers, int[] bonusNumbers)
 		{
 			GameName = gameName;
 			DrawDate = drawDate;
 			WinningNumbers = winningNumbers;
-			BonusNumber = bonusNumber;
-			JackpotAmount = jackpotAmount;
-			RawResponse = rawResponse;
+			BonusNumbers = bonusNumbers;
+			RawResponse = string.Empty;
 		}
-		public LastDraw()
+		public LastDrawModel()
 		{
 			GameName = "gameName";
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
-			BonusNumber = 0;
-			JackpotAmount = 0;
+			BonusNumbers = new int[6];
 			RawResponse = "raw response here";
 		}
-		public LastDraw(string rawResponse)
+		public LastDrawModel(string rawResponse)
 		{
 			GameName = "gameName";
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
-			BonusNumber = 0;
-			JackpotAmount = 0;
+			BonusNumbers = new int[6];
 			RawResponse = rawResponse;
 		}
 	}

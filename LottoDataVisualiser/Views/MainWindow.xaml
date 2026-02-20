@@ -27,9 +27,14 @@
         <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
             <ScrollViewer>
                 <StackPanel x:Name="MainStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <TextBox x:Name="LottoApiResponse" TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
-
-
+                    <!--
+                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbers, Mode=OneWay}" Width="auto" Height="auto"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbers, Mode=OneWay}" Width="auto" Height="auto"/>
+                    
+                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+-->
                 </StackPanel>
             </ScrollViewer>
         </Border>

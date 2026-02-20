@@ -6,9 +6,9 @@ namespace LottoApp.ViewModels
 	internal class LottoViewModel : INotifyPropertyChanged
 	{
 
-		private LastDraw _lottoResult = null!;
+		private LastDrawModel _lottoResult = null!;
 
-		public LastDraw LottoResult
+		public LastDrawModel LottoResult
 		{
 			get => _lottoResult;
 			set
@@ -23,11 +23,7 @@ namespace LottoApp.ViewModels
 		}
 		private async void LoadDataFromApi()
 		{
-			string RawAPIResponse = await new Services.LottoEndPoints.GetLastDraw().GetRaw();
-
-
-
-			LottoResult = new LastDraw(RawAPIResponse);
+			LottoResult = new Services.APIServices.GetLastDrawAsync().Get();
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;
