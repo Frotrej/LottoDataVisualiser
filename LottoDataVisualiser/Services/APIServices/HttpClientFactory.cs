@@ -2,12 +2,12 @@
 
 namespace LottoApp.Services.APIServices
 {
-	public class HttpClientService
+	public class HttpClientFactory
 	{
-		private readonly HttpClient httpClient;
-		public HttpClientService()
+		private readonly System.Net.Http.HttpClient httpClient;
+		public HttpClientFactory()
 		{
-			httpClient = new HttpClient();
+			httpClient = new System.Net.Http.HttpClient();
 
 			//apiKey from powershell environmental console (setx MY_API_KEY "your key")
 			string apiKey = new string(Environment.GetEnvironmentVariable("MY_API_KEY"));
@@ -18,7 +18,7 @@ namespace LottoApp.Services.APIServices
 			httpClient.BaseAddress = baseUrlAsUri;
 		}
 
-		public HttpClient GetHttpClient()
+		public System.Net.Http.HttpClient GetHttpClient()
 		{
 			return httpClient;
 		}
