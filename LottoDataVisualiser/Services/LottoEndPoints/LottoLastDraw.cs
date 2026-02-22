@@ -17,9 +17,9 @@ namespace LottoApp.Services.LottoEndPoints
 		private async Task<HttpResponseMessage> MakeCall()
 		{
 			APIServices.HttpClientFactory httpClientService = new APIServices.HttpClientFactory();
-			HttpClient _httpClient = httpClientService.GetHttpClient();
+			HttpClient httpClient = httpClientService.GetHttpClient();
 
-			var response = await _httpClient.GetAsync("/api/open/v1/lotteries/draw-results/last-results-per-game?gameType=Lotto");
+			var response = await httpClient.GetAsync("/api/open/v1/lotteries/draw-results/last-results-per-game?gameType=Lotto");
 			response.EnsureSuccessStatusCode();
 
 			return response;
