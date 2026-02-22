@@ -5,7 +5,19 @@
 		public string GameName { get; set; }
 		public DateTime DrawDate { get; set; }
 		public int[] WinningNumbers { get; set; }
+		public string WinningNumbersText
+		{
+			get => WinningNumbers != null
+				? string.Join(", ", WinningNumbers)
+				: string.Empty;
+		}
 		public int[] BonusNumbers { get; set; }
+		public string BonusNumbersText
+		{
+			get => BonusNumbers != null
+				? string.Join(", ", BonusNumbers)
+				: string.Empty;
+		}
 		public string RawResponse { get; set; }
 
 
@@ -13,7 +25,7 @@
 		{
 			GameName = gameName;
 			DrawDate = drawDate;
-			WinningNumbers = winningNumbers;
+			WinningNumbers = [winningNumbers[0], winningNumbers[1], winningNumbers[2], winningNumbers[3], winningNumbers[4], winningNumbers[5]];
 			BonusNumbers = bonusNumbers;
 			RawResponse = string.Empty;
 		}

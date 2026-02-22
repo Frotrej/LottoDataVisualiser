@@ -5,9 +5,9 @@ namespace LottoApp.Services.APIServices
 {
 	internal class GetLastDrawAsync
 	{
-		public LastDrawModel Get()
+		public async Task<LastDrawModel> Get()
 		{
-			string json = new LottoEndPoints.LottoLastDraw().Get().Result;
+			string json = await new LottoEndPoints.LottoLastDraw().Get();
 
 			List<DrawDTOModel> draw = JsonSerializer.Deserialize<List<DrawDTOModel>>(json);
 
@@ -15,10 +15,10 @@ namespace LottoApp.Services.APIServices
 
 			LastDrawModel lastDrawLotto = new LastDrawModel
 			{
-				GameName = draw[0].Results.GameType,
-				DrawDate = DateTime.Parse(draw[0].Results.DrawDate),
-				WinningNumbers = draw[0].Results.WinningNumbers,
-				BonusNumbers = draw[1].Results.WinningNumbers,
+				GameName = draw[0].Results[0].GameType,
+				DrawDate = draw[0].Results[0].DrawDate,
+				WinningNumbers = draw[0].Results[0].WinningNumbers,
+				BonusNumbers = draw[1].Results[0].WinningNumbers,
 				RawResponse = json
 			};
 

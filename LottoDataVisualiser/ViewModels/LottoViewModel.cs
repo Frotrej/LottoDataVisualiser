@@ -23,7 +23,7 @@ namespace LottoApp.ViewModels
 		}
 		private async void LoadDataFromApi()
 		{
-			LottoResult = new Services.APIServices.GetLastDrawAsync().Get();
+			LottoResult = await new Services.APIServices.GetLastDrawAsync().Get();
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;

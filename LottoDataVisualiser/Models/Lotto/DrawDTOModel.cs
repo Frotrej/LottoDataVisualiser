@@ -13,7 +13,7 @@ namespace LottoApp.Models.Lotto
         [JsonPropertyName("multiplierValue")]
 		public int MultiplierValue { get; set; }
         [JsonPropertyName("results")]
-		public DrawInfoDTOModel Results { get; set; }
+		public List<DrawInfoDTOModel> Results { get; set; }
         [JsonPropertyName("showSpecialResults")]
 		public bool ShowSpecialResults { get; set; }
         [JsonPropertyName("isNewEuroJackpotDraw")]

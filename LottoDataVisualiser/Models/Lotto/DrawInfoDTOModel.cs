@@ -5,7 +5,7 @@ namespace LottoApp.Models.Lotto
 	internal class DrawInfoDTOModel
 	{
 		[JsonPropertyName("drawDate")]
-		public string DrawDate { get; set; } //replace with DateTime int the future
+		public DateTime DrawDate { get; set; }
 		[JsonPropertyName("drawSystemId")]
 		public int DrawSystemId { get; set; }
 		[JsonPropertyName("gameType")]
@@ -13,6 +13,6 @@ namespace LottoApp.Models.Lotto
 		[JsonPropertyName("resultsJson")]
 		public int[] WinningNumbers { get; set; }
 		[JsonPropertyName("specialResults")]
-		public string SpecialResults { get; set; }
+		public int[] SpecialResults { get; set; }
 	}
 }
