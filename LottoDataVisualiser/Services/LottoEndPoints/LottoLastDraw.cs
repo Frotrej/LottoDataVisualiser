@@ -20,7 +20,17 @@ namespace LottoApp.Services.LottoEndPoints
 			HttpClient httpClient = httpClientService.GetHttpClient();
 
 			var response = await httpClient.GetAsync("/api/open/v1/lotteries/draw-results/last-results-per-game?gameType=Lotto");
-			response.EnsureSuccessStatusCode();
+
+			try
+			{
+				response.EnsureSuccessStatusCode();
+			}
+			catch (HttpRequestException ex)
+			{
+				string content = await response.Content.ReadAsStringAsync();
+				//jak to zrobić bo trochęnie mam teraz na to pomysłu
+			}
+			
 
 			return response;
 		}
