@@ -9,11 +9,27 @@ namespace LottoApp.Services.APIServices
 		{
 			string json = await new LottoEndPoints.LottoLastDraw().Get();
 
-			List<DrawDTOModel> draw = JsonSerializer.Deserialize<List<DrawDTOModel>>(json);
+			List<DrawDTOModel> draw = new();
 
-			if (draw == null) return null;
+			try
+			{
+				draw = JsonSerializer.Deserialize<List<DrawDTOModel>>(json);
 
-			LastDrawModel lastDrawLotto = new LastDrawModel
+				if (draw == null || draw.Any())
+				{
+					json = "Bad api response could not map data:" + json;
+					LastDrawModel lastDrawBadResponse = new LastDrawModel(json);
+					return lastDrawBadResponse;
+				}
+			}
+			catch (Exception ex)
+			{
+				json = ex.Message + "|json string: " + json;
+				LastDrawModel lastDrawDeserializationException = new LastDrawModel(json);
+				return lastDrawDeserializationException;
+			}
+
+			LastDrawModel lastDraw = new LastDrawModel
 			{
 				GameName = draw[0].Results[0].GameType,
 				DrawDate = draw[0].Results[0].DrawDate,
@@ -22,7 +38,7 @@ namespace LottoApp.Services.APIServices
 				RawResponse = json
 			};
 
-			return lastDrawLotto;
+			return lastDraw;
 		}
 
 

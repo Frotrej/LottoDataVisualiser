@@ -7,32 +7,31 @@ namespace LottoApp.Services.LottoEndPoints
 	{
 		public async Task<string> Get()
 		{
-			HttpResponseMessage rawResponse = await MakeCall();
+			string JsonResponse = await MakeCall();
 
-			string rawJson = await rawResponse.Content.ReadAsStringAsync();
-
-			return rawJson;
+			return JsonResponse;
 		}
 
-		private async Task<HttpResponseMessage> MakeCall()
+		private async Task<string> MakeCall()
 		{
 			APIServices.HttpClientFactory httpClientService = new APIServices.HttpClientFactory();
 			HttpClient httpClient = httpClientService.GetHttpClient();
-
 			var response = await httpClient.GetAsync("/api/open/v1/lotteries/draw-results/last-results-per-game?gameType=Lotto");
 
+			string jsonResponse;
 			try
 			{
 				response.EnsureSuccessStatusCode();
 			}
 			catch (HttpRequestException ex)
 			{
-				string content = await response.Content.ReadAsStringAsync();
-				//jak to zrobić bo trochęnie mam teraz na to pomysłu
+				string exceptionString = await response.Content.ReadAsStringAsync();
+				return exceptionString;
 			}
 			
+			jsonResponse = await response.Content.ReadAsStringAsync();
 
-			return response;
+			return jsonResponse;
 		}
 	}
 }
