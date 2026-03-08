@@ -23,7 +23,7 @@ namespace LottoApp.Services.LottoEndPoints
 			{
 				response.EnsureSuccessStatusCode();
 			}
-			catch (HttpRequestException ex)
+			catch
 			{
 				string exceptionString = await response.Content.ReadAsStringAsync();
 				return exceptionString;
