@@ -1,14 +1,21 @@
-﻿using System.Net.Http;
+﻿using Microsoft.Extensions.Configuration;
+using System.IO;
+using System.Net.Http;
 
 namespace LottoApp.Services.APIServices
 {
 	public class HttpClientFactory
 	{
-		private readonly System.Net.Http.HttpClient httpClient;
+		private readonly HttpClient httpClient;
 		public HttpClientFactory()
 		{
-			httpClient = new System.Net.Http.HttpClient();
+			httpClient = new HttpClient();
 
+			GetDataFromLocalVariables();
+		}
+
+		private void GetDataFromLocalVariables()
+		{
 			//apiKey from powershell environmental console (setx MY_API_KEY "your key")
 			string apiKey = new string(Environment.GetEnvironmentVariable("MY_API_KEY"));
 			httpClient.DefaultRequestHeaders.Add("secret", apiKey);
@@ -18,7 +25,16 @@ namespace LottoApp.Services.APIServices
 			httpClient.BaseAddress = baseUrlAsUri;
 		}
 
-		public System.Net.Http.HttpClient GetHttpClient()
+		private void GetDataFromAppSettings()
+		{
+			IConfigurationBuilder builder = new ConfigurationBuilder()
+				.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+#if DEBUG
+			builder.AddJsonFile("appsettigns.Local.json", optional: true, reloadOnChange: true);
+
+		}
+
+		public HttpClient GetHttpClient()
 		{
 			return httpClient;
 		}
