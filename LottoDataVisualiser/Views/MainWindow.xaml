@@ -16,26 +16,44 @@
 
         <!--zakładki u góry-->
         <TabControl Grid.Row="0" TabStripPlacement="Top" Margin="8">
-            <TabItem Header="Lotto" />
-            <TabItem Header="Keno" />
+            <!--LOTTO-->
+            <TabItem Header="Lotto" >
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="MainStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
+            <!--EURO JACKPOT-->
             <TabItem Header="Euro Jackpot" />
-            <TabItem Header="Tab 4" />
-            <TabItem Header="Tab 5" />
+            <!--Multi Multi-->
+            <TabItem Header="Multi Multi" />
+            <!--Mini Lotto-->
+            <TabItem Header="Mini Lotto" />
+            <!--Kaskada-->
+            <TabItem Header="Kaskada" />
+            <!--Keno-->
+            <TabItem Header="Keno" />
+            <!--Ekstra Pensja-->
+            <TabItem Header="Ekstra Pensja" />
+            <!--Ekstra Premia-->
+            <TabItem Header="Ekstra Premia" />
+            <!--Szybkie 600-->
+            <TabItem Header="Szybkie 600" />
+            <!--Zakłady Specjalne-->
+            <TabItem Header="Zakłady Specjalne" />
+
         </TabControl>
 
         <!--StackPanel-->
-        <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
-            <ScrollViewer>
-                <StackPanel x:Name="MainStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    
-                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
-                </StackPanel>
-            </ScrollViewer>
-        </Border>
+        
 
         <!--przyciski w dole-->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="8">
