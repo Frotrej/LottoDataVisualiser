@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace LottoApp.Models.Lotto
+namespace LottoApp.Models.DTOs
 {
     internal class DrawDTOModel
     {
