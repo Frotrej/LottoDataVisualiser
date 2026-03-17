@@ -1,4 +1,4 @@
-﻿namespace LottoApp.Models.Lotto
+﻿namespace LottoApp.Models.DomainModels
 {
 	internal class LastDrawModel
 	{

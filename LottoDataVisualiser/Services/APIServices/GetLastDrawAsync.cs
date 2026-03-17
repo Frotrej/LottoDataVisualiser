@@ -1,4 +1,5 @@
-﻿using LottoApp.Models.Lotto;
+﻿using LottoApp.Models.DomainModels;
+using LottoApp.Models.DTOs;
 using System.Text.Json;
 
 namespace LottoApp.Services.APIServices
@@ -15,7 +16,7 @@ namespace LottoApp.Services.APIServices
 			{
 				draw = JsonSerializer.Deserialize<List<DrawDTOModel>>(json);
 
-				if (draw == null || draw.Any())
+				if (draw == null || draw.Any() == false)
 				{
 					json = "Bad api response could not map data:" + json;
 					LastDrawModel lastDrawBadResponse = new LastDrawModel(json);

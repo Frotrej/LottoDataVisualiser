@@ -1,4 +1,4 @@
-﻿using LottoApp.Models.Lotto;
+﻿using LottoApp.Models.DomainModels;
 using System.ComponentModel;
 
 namespace LottoApp.ViewModels
