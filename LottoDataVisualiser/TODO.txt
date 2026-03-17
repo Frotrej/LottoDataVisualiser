@@ -1,0 +1,2 @@
+﻿Implement better UI handling, best based on the existing DomainModels existing at the run time
+- Add a loading spinner while data is being fetched for every tab for each game so tabs at least exist

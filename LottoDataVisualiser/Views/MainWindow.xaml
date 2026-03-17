@@ -20,8 +20,7 @@
             <TabItem Header="Lotto" >
                 <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
                     <ScrollViewer>
-                        <StackPanel x:Name="MainStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-
+                        <StackPanel x:Name="LottoStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                             <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
                             <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
                             <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
@@ -32,23 +31,131 @@
                 </Border>
             </TabItem>
             <!--EURO JACKPOT-->
-            <TabItem Header="Euro Jackpot" />
+            <TabItem Header="Euro Jackpot">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="EuroStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Multi Multi-->
-            <TabItem Header="Multi Multi" />
+            <TabItem Header="Multi Multi">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="MultiMultiStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Mini Lotto-->
-            <TabItem Header="Mini Lotto" />
+            <TabItem Header="Mini Lotto">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="MiniLottoStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Kaskada-->
-            <TabItem Header="Kaskada" />
+            <TabItem Header="Kaskada">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="KaskadaStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Keno-->
-            <TabItem Header="Keno" />
+            <TabItem Header="Keno">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="KenoStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Ekstra Pensja-->
-            <TabItem Header="Ekstra Pensja" />
+            <TabItem Header="Ekstra Pensja">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="EkstraPensjaStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Ekstra Premia-->
-            <TabItem Header="Ekstra Premia" />
+            <TabItem Header="Ekstra Premia">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="EkstraPremiaStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Szybkie 600-->
-            <TabItem Header="Szybkie 600" />
+            <TabItem Header="Szybkie 600">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="Szybkie600StackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
             <!--Zakłady Specjalne-->
-            <TabItem Header="Zakłady Specjalne" />
+            <TabItem Header="Zakłady Specjalne">
+                <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel x:Name="ZakładySpecjalneStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </TabItem>
 
         </TabControl>
 
