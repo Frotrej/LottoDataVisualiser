@@ -7,10 +7,7 @@ namespace LottoApp
         public MainWindow()
         {
             InitializeComponent();
-
             DataContext = new ViewModels.LottoViewModel();
-
 		}
-
 	}
 }
