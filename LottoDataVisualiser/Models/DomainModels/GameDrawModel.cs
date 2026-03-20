@@ -1,6 +1,6 @@
 ﻿namespace LottoApp.Models.DomainModels
 {
-	internal class LastDrawModel
+	internal class GameDrawModel
 	{
 		public string GameName { get; set; }
 		public DateTime DrawDate { get; set; }
@@ -21,7 +21,7 @@
 		public string RawResponse { get; set; }
 
 
-		public LastDrawModel(string gameName, DateTime drawDate, int[] winningNumbers, int[] bonusNumbers)
+		public GameDrawModel(string gameName, DateTime drawDate, int[] winningNumbers, int[] bonusNumbers)
 		{
 			GameName = gameName;
 			DrawDate = drawDate;
@@ -29,7 +29,7 @@
 			BonusNumbers = bonusNumbers;
 			RawResponse = string.Empty;
 		}
-		public LastDrawModel()
+		public GameDrawModel()
 		{
 			GameName = "gameName";
 			DrawDate = DateTime.Now;
@@ -37,7 +37,7 @@
 			BonusNumbers = new int[6];
 			RawResponse = "raw response here";
 		}
-		public LastDrawModel(string rawResponse)
+		public GameDrawModel(string rawResponse)
 		{
 			GameName = "gameName";
 			DrawDate = DateTime.Now;

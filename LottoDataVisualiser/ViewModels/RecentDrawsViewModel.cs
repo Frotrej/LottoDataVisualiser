@@ -1,14 +1,17 @@
 ﻿using LottoApp.Models.DomainModels;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
 namespace LottoApp.ViewModels
 {
-	internal class LottoViewModel : INotifyPropertyChanged
+	internal class RecentDrawsViewModel
 	{
+/*
+		private LastDrawModel _lottoResult = null!;
 
-		private GameDrawModel _lottoResult = null!;
-
-		public GameDrawModel LottoResult
+		public LastDrawModel LottoResult
 		{
 			get => _lottoResult;
 			set
@@ -23,7 +26,10 @@ namespace LottoApp.ViewModels
 		}
 		private async void LoadNewestDrawsFromApi()
 		{
+			// Call the API to get the latest lotto draw result
 			var lotto = await new Services.APIServices.GetLastDrawAsync().Get();
+
+			//possible improvement: instead of calling api for every game separately, create a new api endpoint that returns all the latest draws in one call, then map the response to a list of LastDrawModel and assign it to LottoResult
 
 			LottoResult = lotto;
 		}
@@ -34,6 +40,11 @@ namespace LottoApp.ViewModels
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+*/
+
 
 	}
 }
+
+
+//create a new api endpoint that returns all the latest draws in one call, then map the response to a List<LastDrawModel> and assign it to viewModel

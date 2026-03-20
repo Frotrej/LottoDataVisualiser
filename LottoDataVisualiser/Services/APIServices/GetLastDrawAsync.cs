@@ -6,11 +6,13 @@ namespace LottoApp.Services.APIServices
 {
 	internal class GetLastDrawAsync
 	{
-		public async Task<LastDrawModel> Get()
+		public async Task<GameDrawModel> Get()
 		{
-			string json = await new LottoEndPoints.LottoLastDraw().Get();
+			string json = await new EndPointWrappers.LottoLastDraw().Get();
 
 			List<DrawDTOModel> draw = new();
+
+			GameDrawModel lastDraw = new();
 
 			try
 			{
@@ -19,18 +21,18 @@ namespace LottoApp.Services.APIServices
 				if (draw == null || draw.Any() == false)
 				{
 					json = "Bad api response could not map data:" + json;
-					LastDrawModel lastDrawBadResponse = new LastDrawModel(json);
+					GameDrawModel lastDrawBadResponse = new GameDrawModel(json);
 					return lastDrawBadResponse;
 				}
 			}
 			catch (Exception ex)
 			{
 				json = ex.Message + "|json string: " + json;
-				LastDrawModel lastDrawDeserializationException = new LastDrawModel(json);
+				GameDrawModel lastDrawDeserializationException = new GameDrawModel(json);
 				return lastDrawDeserializationException;
 			}
 
-			LastDrawModel lastDraw = new LastDrawModel
+			lastDraw = new GameDrawModel
 			{
 				GameName = draw[0].Results[0].GameType,
 				DrawDate = draw[0].Results[0].DrawDate,
