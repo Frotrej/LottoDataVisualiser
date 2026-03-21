@@ -1,2 +1,3 @@
-﻿Implement better UI handling, best based on the existing DomainModels existing at the run time
+﻿Implement better UI handling, best based on the DomainModels existing at the run time
 - Add a loading spinner while data is being fetched for every tab for each game so tabs at least exist
+- Create Endpoint that will call for last draw for all games instead of calling once per game
