@@ -23,7 +23,7 @@ namespace LottoApp.ViewModels
 		}
 		private async void LoadNewestDrawsFromApi()
 		{
-			var lotto = await new Services.APIServices.GetLastDrawAsync().Get();
+			var lotto = await Services.APIServices.GetLastDrawAsync.Get();
 
 			LottoResult = lotto;
 		}

@@ -7,9 +7,9 @@ namespace LottoApp.Models.DTOs
         [JsonPropertyName("drawSystemId")]
         public int DrawSystemId { get; set; }
         [JsonPropertyName("drawDate")]
-		public string DrawDate { get; set; } //replace with DateTime in the future
+		public string DrawDate { get; set; } //replace with DateTime?
 		[JsonPropertyName("gameType")]
-		public string GameType { get; set; } //replace with enum
+		public string GameType { get; set; } //replace with enum?
         [JsonPropertyName("multiplierValue")]
 		public int MultiplierValue { get; set; }
         [JsonPropertyName("results")]

@@ -1,4 +1,6 @@
-﻿namespace LottoApp.Models.DomainModels
+﻿using LottoApp.Models.DTOs;
+
+namespace LottoApp.Models.DomainModels
 {
 	internal class GameDrawModel
 	{
@@ -43,6 +45,14 @@
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
 			BonusNumbers = new int[6];
+			RawResponse = rawResponse;
+		}
+		public GameDrawModel(string rawResponse, DrawDTOModel dto)
+		{
+			GameName = dto.Results[0].GameType;
+			DrawDate = dto.Results[0].DrawDate;
+			WinningNumbers = dto.Results[0].WinningNumbers;
+			BonusNumbers = dto.Results[0].WinningNumbers;
 			RawResponse = rawResponse;
 		}
 	}
