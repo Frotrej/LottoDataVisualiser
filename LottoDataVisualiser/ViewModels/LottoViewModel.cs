@@ -17,17 +17,11 @@ namespace LottoApp.ViewModels
 				OnPropertyChanged(nameof(LottoResult));
 			}
 		}
-		public LottoViewModel()
+		
+		public async Task Initialize()
 		{
-			LoadNewestDrawsFromApi();
+			LottoResult = await Services.APIServices.GetLastDrawAsync.Get();
 		}
-		private async void LoadNewestDrawsFromApi()
-		{
-			var lotto = await Services.APIServices.GetLastDrawAsync.Get();
-
-			LottoResult = lotto;
-		}
-
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 		protected void OnPropertyChanged(string propertyName)

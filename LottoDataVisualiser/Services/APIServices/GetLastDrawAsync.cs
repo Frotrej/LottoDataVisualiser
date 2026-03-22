@@ -10,7 +10,7 @@ namespace LottoApp.Services.APIServices
 		{
 			string json = await GetApiResponse();
 
-			//gamesDTO is a list because api returns 2 objects in an array, second one being the LottoPlus which requires using DrawDTOModel as a List
+			//gamesDTO is a list because API can return more objects in an array, eg. first one beint Lotto and second one being LottoPlus which requires using DrawDTOModel as a List
 			List<DrawDTOModel> gamesDTO = new();
 
 			GameDrawModel lastLottoDraw = new();
@@ -20,7 +20,7 @@ namespace LottoApp.Services.APIServices
 				return lastLottoDraw;
 			}
 
-			lastLottoDraw = new GameDrawModel(json, gamesDTO[0]);
+			lastLottoDraw = new GameDrawModel(json, gamesDTO);
 
 			return lastLottoDraw;
 		}

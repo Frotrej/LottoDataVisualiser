@@ -47,6 +47,14 @@ namespace LottoApp.Models.DomainModels
 			BonusNumbers = new int[6];
 			RawResponse = rawResponse;
 		}
+		public GameDrawModel(string rawResponse, List<DrawDTOModel> dtoList)
+		{
+			GameName = dtoList[0].Results[0].GameType;
+			DrawDate = dtoList[0].Results[0].DrawDate;
+			WinningNumbers = dtoList[0].Results[0].WinningNumbers;
+			BonusNumbers = dtoList[1].Results[0].WinningNumbers;
+			RawResponse = rawResponse;
+		}
 		public GameDrawModel(string rawResponse, DrawDTOModel dto)
 		{
 			GameName = dto.Results[0].GameType;
