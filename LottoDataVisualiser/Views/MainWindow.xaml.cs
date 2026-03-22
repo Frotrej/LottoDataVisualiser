@@ -12,9 +12,9 @@ namespace LottoApp
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         { 
-            LottoViewModel lotto = new ViewModels.LottoViewModel();
-            await lotto.Initialize();
-			DataContext = lotto;
+            NewestDrawsViewModel GamesDraws = new NewestDrawsViewModel();
+            await GamesDraws.Initialize();
+			DataContext = GamesDraws;
 		}
 	}
 }

@@ -5,7 +5,6 @@ namespace LottoApp.ViewModels
 {
 	internal class LottoViewModel : INotifyPropertyChanged
 	{
-
 		private GameDrawModel _lottoResult = null!;
 
 		public GameDrawModel LottoResult
@@ -28,6 +27,5 @@ namespace LottoApp.ViewModels
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-
 	}
 }

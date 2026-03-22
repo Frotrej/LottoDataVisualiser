@@ -11,7 +11,7 @@ namespace LottoApp.Models.DTOs
 		[JsonPropertyName("gameType")]
 		public string GameType { get; set; } //replace with enum
 		[JsonPropertyName("resultsJson")]
-		public int[] WinningNumbers { get; set; }
+		public int[] Results { get; set; }
 		[JsonPropertyName("specialResults")]
 		public int[] SpecialResults { get; set; }
 	}

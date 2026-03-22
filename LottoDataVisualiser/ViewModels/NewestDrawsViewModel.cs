@@ -10,14 +10,19 @@ namespace LottoApp.ViewModels
 	{
 		private List<GameDrawModel> _gameDrawsList = null!;
 		
-		public List<GameDrawModel> GameDrawsList
+		public List<GameDrawModel> GamesDrawsList
 		{
 			get => _gameDrawsList;
 			set
 			{
 				_gameDrawsList = value;
-				OnPropertyChanged(nameof(GameDrawsList));
+				OnPropertyChanged(nameof(GamesDrawsList));
 			}
+		}
+
+		public async Task Initialize()
+		{
+			GamesDrawsList = await Services.APIServices.GetAllGamesDrawsAsync.Get();
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;

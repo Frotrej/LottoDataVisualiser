@@ -36,11 +36,11 @@
                 <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
                     <ScrollViewer>
                         <StackPanel x:Name="EuroStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[1].GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[1].DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[1].WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[1].BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[1].RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>
@@ -50,11 +50,11 @@
                 <Border Grid.Row="1" Margin="8" Background="#FFF5F5F5" CornerRadius="4">
                     <ScrollViewer>
                         <StackPanel x:Name="MultiMultiStackPanel" Margin="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.GameName, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding LottoResult.RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[2].GameName, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[2].DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[2].WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[2].BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[2].RawResponse, Mode=OneWay}" Width="auto" Height="auto"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>

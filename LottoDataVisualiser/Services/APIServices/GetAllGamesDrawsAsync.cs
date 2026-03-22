@@ -1,17 +1,34 @@
 ﻿using LottoApp.Models.DomainModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using LottoApp.Models.DTOs;
 
 namespace LottoApp.Services.APIServices
 {
 	internal class GetAllGamesDrawsAsync
 	{
-		public Task<List<GameDrawModel>> Get()
+		public static async Task<List<GameDrawModel>> Get()
 		{
-			
+			string json = await GetApiResponse();
 
-			throw new NotImplementedException();
+			List<DrawDTOModel> gamesDTO = new();
+
+			List<GameDrawModel> latestGamesDraws = new();
+
+			if (!DeserializeHelper.JsonToDto(json, ref gamesDTO, ref latestGamesDraws))
+			{
+				return latestGamesDraws;
+			}
+
+			foreach (var draw in gamesDTO)
+			{
+				latestGamesDraws.Add(new GameDrawModel(json, draw));
+			}
+
+			return latestGamesDraws;
+		}
+
+		private static async Task<string> GetApiResponse()
+		{
+			return await new EndPointWrappers.AllGamesLastDraw().Get();
 		}
 	}
 }

@@ -10,12 +10,12 @@ namespace LottoApp.Services.APIServices
 		{
 			string json = await GetApiResponse();
 
-			//gamesDTO is a list because API can return more objects in an array, eg. first one beint Lotto and second one being LottoPlus which requires using DrawDTOModel as a List
+			///gamesDTO is a list because API can return more objects in an array, eg. first one beint Lotto and second one being LottoPlus which requires using DrawDTOModel as a List
 			List<DrawDTOModel> gamesDTO = new();
 
 			GameDrawModel lastLottoDraw = new();
 
-			if (!DeserializeAndCatch(json, ref gamesDTO, ref lastLottoDraw))
+			if (!DeserializeHelper.JsonToDto(json, ref gamesDTO, ref lastLottoDraw))
 			{
 				return lastLottoDraw;
 			}
@@ -28,28 +28,6 @@ namespace LottoApp.Services.APIServices
 		{
 			return await new EndPointWrappers.LottoLastDraw().Get();
 		}
-		private static bool DeserializeAndCatch(string json, ref List<DrawDTOModel> dto, ref GameDrawModel lastLottoDraw)
-		{
-			try
-			{
-				dto = JsonSerializer.Deserialize<List<DrawDTOModel>>(json);
-
-				if (dto == null || dto.Count == 0)
-				{
-					json = "Bad api response could not map data:" + json;
-					GameDrawModel lastDrawBadResponse = new GameDrawModel(json);
-					return false;
-				}
-			}
-			catch (Exception ex)
-			{
-				json = ex.Message + "|json string: " + json;
-
-				lastLottoDraw = new GameDrawModel(json);
-				return false;
-			}
-
-			return true;
-		}
+		
 	}
 }
