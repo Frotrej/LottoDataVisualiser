@@ -20,6 +20,9 @@ namespace LottoApp.Models.DomainModels
 				? string.Join(", ", BonusNumbers)
 				: string.Empty;
 		}
+		public string GameId { get; set; }
+		public bool ShowSpecialResults { get; set; }
+		public bool IsEuroJackpot { get; set; }
 		public string RawResponse { get; set; }
 
 
@@ -29,6 +32,9 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = drawDate;
 			WinningNumbers = [winningNumbers[0], winningNumbers[1], winningNumbers[2], winningNumbers[3], winningNumbers[4], winningNumbers[5]];
 			BonusNumbers = bonusNumbers;
+			GameId = 0.ToString();
+			ShowSpecialResults = false;
+			IsEuroJackpot = false;
 			RawResponse = string.Empty;
 		}
 		public GameDrawModel()
@@ -37,6 +43,9 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
 			BonusNumbers = new int[6];
+			GameId = 0.ToString();
+			ShowSpecialResults = false;
+			IsEuroJackpot = false;
 			RawResponse = "raw response here";
 		}
 		public GameDrawModel(string rawResponse)
@@ -45,14 +54,31 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
 			BonusNumbers = new int[6];
+			GameId = 0.ToString();
+			ShowSpecialResults = false;
+			IsEuroJackpot = false;
+			RawResponse = rawResponse;
+		}
+		public GameDrawModel(string rawResponse, List<DrawDTOModel> dtoList)
+		{
+			GameName = dtoList[0].GameType;
+			DrawDate = dtoList[0].DrawDate;
+			WinningNumbers = dtoList[0].Results[0].Results;
+			BonusNumbers = dtoList[0].Results[0].SpecialResults;
+			GameId = dtoList[0].DrawSystemId.ToString();
+			ShowSpecialResults = false;
+			IsEuroJackpot = false;
 			RawResponse = rawResponse;
 		}
 		public GameDrawModel(string rawResponse, DrawDTOModel dto)
 		{
-			GameName = dto.Results[0].GameType;
-			DrawDate = dto.Results[0].DrawDate;
-			WinningNumbers = dto.Results[0].WinningNumbers;
-			BonusNumbers = dto.Results[0].WinningNumbers;
+			GameName = dto.GameType;
+			DrawDate = dto.DrawDate;
+			WinningNumbers = dto.Results[0].Results;
+			BonusNumbers = dto.Results[0].SpecialResults;
+			GameId = dto.DrawSystemId.ToString();
+			ShowSpecialResults = dto.ShowSpecialResults;
+			IsEuroJackpot = dto.IsNewEuroJackpotDraw;
 			RawResponse = rawResponse;
 		}
 	}

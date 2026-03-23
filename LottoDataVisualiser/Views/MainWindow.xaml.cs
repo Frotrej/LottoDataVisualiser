@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using LottoApp.ViewModels;
+using System.Windows;
 
 namespace LottoApp
 {
@@ -7,7 +8,13 @@ namespace LottoApp
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModels.LottoViewModel();
+		}
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        { 
+            NewestDrawsViewModel GamesDraws = new NewestDrawsViewModel();
+            await GamesDraws.Initialize();
+			DataContext = GamesDraws;
 		}
 	}
 }

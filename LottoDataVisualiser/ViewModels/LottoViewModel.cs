@@ -5,7 +5,6 @@ namespace LottoApp.ViewModels
 {
 	internal class LottoViewModel : INotifyPropertyChanged
 	{
-
 		private GameDrawModel _lottoResult = null!;
 
 		public GameDrawModel LottoResult
@@ -17,23 +16,16 @@ namespace LottoApp.ViewModels
 				OnPropertyChanged(nameof(LottoResult));
 			}
 		}
-		public LottoViewModel()
+		
+		public async Task Initialize()
 		{
-			LoadNewestDrawsFromApi();
+			LottoResult = await Services.APIServices.GetLastDrawAsync.Get();
 		}
-		private async void LoadNewestDrawsFromApi()
-		{
-			var lotto = await Services.APIServices.GetLastDrawAsync.Get();
-
-			LottoResult = lotto;
-		}
-
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 		protected void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-
 	}
 }

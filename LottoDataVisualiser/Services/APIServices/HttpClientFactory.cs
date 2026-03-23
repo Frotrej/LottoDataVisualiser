@@ -11,7 +11,7 @@ namespace LottoApp.Services.APIServices
 		{
 			httpClient = new HttpClient();
 
-			GetDataFromLocalVariables();
+			GetDataFromAppSettings();
 		}
 
 		private void GetDataFromLocalVariables()
@@ -25,15 +25,19 @@ namespace LottoApp.Services.APIServices
 			httpClient.BaseAddress = baseUrlAsUri;
 		}
 
-		private IConfiguration GetDataFromAppSettings()
+		private void GetDataFromAppSettings()
 		{
 			IConfigurationBuilder builder = new ConfigurationBuilder()
 				.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
 #if DEBUG
-			builder.AddJsonFile("appsettigns.Local.json", optional: true, reloadOnChange: true);
+			builder.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true);
 #endif
 
-			return builder.Build();
+			httpClient.DefaultRequestHeaders.Add(builder.Build().GetSection("header").Value, builder.Build().GetSection("APIKey").Value);
+
+			httpClient.BaseAddress = new Uri(builder.Build().GetSection("APIBaseUrl").Value);
+
+
 			//https://www.youtube.com/watch?v=ASraHYMi808&t=1540s
 			//worki in progress
 		}
