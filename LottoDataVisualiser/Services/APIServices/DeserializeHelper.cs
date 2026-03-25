@@ -50,7 +50,7 @@ namespace LottoApp.Services.APIServices
 			}
 			catch (Exception ex)
 			{
-				json = ex.Message + "|json string: " + json;
+				json = ex.Message + " || json string: " + json;
 
 				recentGamesDraws.Add(new GameDrawModel(json));
 				return false;
