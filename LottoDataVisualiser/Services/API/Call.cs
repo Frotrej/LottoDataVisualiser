@@ -7,21 +7,20 @@ namespace LottoApp.Services.API
 	{
 		public static async Task<string> GetResponse(string endpoint)
 		{
-			HttpClientFactory httpClientService = new HttpClientFactory();
-			HttpClient httpClient = httpClientService.GetHttpClient();
-			var response = await httpClient.GetAsync(endpoint);
-			string jsonResponse;
+			HttpClient httpClient = HttpClientFactory.GetHttpClient();
+
+			var APIresponse = await httpClient.GetAsync(endpoint);
+
 			try
 			{
-				response.EnsureSuccessStatusCode();
+				APIresponse.EnsureSuccessStatusCode();
 			}
 			catch
 			{
-				string exceptionString = await response.Content.ReadAsStringAsync();
-				return exceptionString;
+				return await APIresponse.Content.ReadAsStringAsync();
 			}
-			jsonResponse = await response.Content.ReadAsStringAsync();
-			return jsonResponse;
+
+			return await APIresponse.Content.ReadAsStringAsync();
 		}
 	}
 }
