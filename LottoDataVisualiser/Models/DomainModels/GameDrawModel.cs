@@ -20,6 +20,7 @@ namespace LottoApp.Models.DomainModels
 				? string.Join(", ", BonusNumbers)
 				: string.Empty;
 		}
+		public int MultiplierValue { get; set; }
 		public string GameId { get; set; }
 		public bool ShowSpecialResults { get; set; }
 		public bool IsEuroJackpot { get; set; }
@@ -32,6 +33,7 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = drawDate;
 			WinningNumbers = [winningNumbers[0], winningNumbers[1], winningNumbers[2], winningNumbers[3], winningNumbers[4], winningNumbers[5]];
 			BonusNumbers = bonusNumbers;
+			MultiplierValue = 0;
 			GameId = 0.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
@@ -43,6 +45,7 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
 			BonusNumbers = new int[6];
+			MultiplierValue = 0;
 			GameId = 0.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
@@ -54,6 +57,7 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = DateTime.Now;
 			WinningNumbers = new int[6];
 			BonusNumbers = new int[6];
+			MultiplierValue = 0;
 			GameId = 0.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
@@ -65,6 +69,7 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = dtoList[0].DrawDate;
 			WinningNumbers = dtoList[0].Results[0].Results;
 			BonusNumbers = dtoList[0].Results[0].SpecialResults;
+			MultiplierValue = dtoList[0].MultiplierValue ?? 0;
 			GameId = dtoList[0].DrawSystemId.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
@@ -76,6 +81,7 @@ namespace LottoApp.Models.DomainModels
 			DrawDate = dto.DrawDate;
 			WinningNumbers = dto.Results[0].Results;
 			BonusNumbers = dto.Results[0].SpecialResults;
+			MultiplierValue = dto.MultiplierValue ?? 0;
 			GameId = dto.DrawSystemId.ToString();
 			ShowSpecialResults = dto.ShowSpecialResults;
 			IsEuroJackpot = dto.IsNewEuroJackpotDraw;

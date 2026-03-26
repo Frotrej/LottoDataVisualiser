@@ -91,7 +91,7 @@
                             <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[5].GameName, Mode=OneWay}" Width="auto" Height="auto"/>
                             <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[5].DrawDate, Mode=OneWay}" Width="auto" Height="auto"/>
                             <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[5].WinningNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
-                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[5].BonusNumbersText, Mode=OneWay}" Width="auto" Height="auto"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding GamesDrawsList[5].MultiplierValue, Mode=OneWay}" Width="auto" Height="auto"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>

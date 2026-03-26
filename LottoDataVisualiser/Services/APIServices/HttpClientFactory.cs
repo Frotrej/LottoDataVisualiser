@@ -1,52 +1,52 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.IO;
+﻿using LottoApp.Common;
 using System.Net.Http;
 
 namespace LottoApp.Services.APIServices
 {
-	public class HttpClientFactory
+	public static class HttpClientFactory
 	{
-		private readonly HttpClient httpClient;
-		public HttpClientFactory()
+		private static readonly HttpClient httpClient;
+		static HttpClientFactory()
 		{
 			httpClient = new HttpClient();
 
-			GetDataFromAppSettings();
+			try
+			{
+				LoadDataFromLocalVariables();
+			}
+			catch
+			{
+				try
+				{
+					LoadConfig();
+				}
+				catch
+				{
+					//swallow exception, if both methods fail, the http client will be created without configuration, and the api calls will fail, improvement:log the exception, or show a message to the user
+				}
+			}
 		}
 
-		private void GetDataFromLocalVariables()
-		{
-			//apiKey from powershell environmental console (setx MY_API_KEY "your key")
-			string apiKey = new string(Environment.GetEnvironmentVariable("MY_API_KEY"));
-			httpClient.DefaultRequestHeaders.Add("secret", apiKey);
-
-			//base url as uri for http client to call api
-			var baseUrlAsUri = new Uri("https://developers.lotto.pl");
-			httpClient.BaseAddress = baseUrlAsUri;
-		}
-
-		private void GetDataFromAppSettings()
-		{
-			IConfigurationBuilder builder = new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-#if DEBUG
-			builder.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true);
-#endif
-
-			httpClient.DefaultRequestHeaders.Add(builder.Build().GetSection("header").Value, builder.Build().GetSection("APIKey").Value);
-
-			httpClient.BaseAddress = new Uri(builder.Build().GetSection("APIBaseUrl").Value);
-
-
-			//https://www.youtube.com/watch?v=ASraHYMi808&t=1540s
-			//worki in progress
-		}
-
-		public HttpClient GetHttpClient()
+		public static HttpClient GetHttpClient()
 		{
 			return httpClient;
 		}
+		private static void LoadConfig()
+		{
+			var config = BuildConfig.GetAppsettingsConfig();
 
+			httpClient.DefaultRequestHeaders.Add(config["header"], config["APIKey"]);
 
+			httpClient.BaseAddress = new Uri(config["APIBaseUrl"]);
+		}
+		private static void LoadDataFromLocalVariables()
+		{
+			//apiKey from powershell, environmental variable, (setx MY_API_KEY "your key")
+			string apiKey = (Environment.GetEnvironmentVariable("MY_API_KEY"));
+			httpClient.DefaultRequestHeaders.Add("secret", apiKey);
+
+			//base url as uri for http client to call api
+			httpClient.BaseAddress = new Uri("https://developers.lotto.pl");
+		}
 	}
 }
