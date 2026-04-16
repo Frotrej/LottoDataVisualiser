@@ -70,7 +70,7 @@ namespace LottoApp.Models.DomainModels
 			WinningNumbers = dtoList[0].Results[0].Results;
 			BonusNumbers = dtoList[0].Results[0].SpecialResults;
 			MultiplierValue = dtoList[0].MultiplierValue ?? 0;
-			GameId = dtoList[0].DrawSystemId.ToString();
+			GameId = dtoList[0].DrawSystemId.ToString() ?? "0";
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
 			RawResponse = rawResponse;
@@ -82,7 +82,7 @@ namespace LottoApp.Models.DomainModels
 			WinningNumbers = dto.Results[0].Results;
 			BonusNumbers = dto.Results[0].SpecialResults;
 			MultiplierValue = dto.MultiplierValue ?? 0;
-			GameId = dto.DrawSystemId.ToString();
+			GameId = dto.DrawSystemId.ToString() ?? "0";
 			ShowSpecialResults = dto.ShowSpecialResults;
 			IsEuroJackpot = dto.IsNewEuroJackpotDraw;
 			RawResponse = rawResponse;
