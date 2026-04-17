@@ -8,9 +8,9 @@ namespace LottoApp.Services.Graphs
 {
     class GraphTesting
     {
-
-        AdjacencyGraph<string, Edge<string>> graph = new AdjacencyGraph<string, Edge<string>>();
         DataSet dataSet = new DataSet();
-        DataSet
+
+
+
 	}
 }

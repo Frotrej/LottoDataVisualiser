@@ -24,7 +24,7 @@ namespace LottoApp.Models.DomainModels
 		public string GameId { get; set; }
 		public bool ShowSpecialResults { get; set; }
 		public bool IsEuroJackpot { get; set; }
-		public string RawResponse { get; set; }
+		public string ErrorLog { get; set; }
 
 
 		public GameDrawModel(string gameName, DateTime drawDate, int[] winningNumbers, int[] bonusNumbers)
@@ -37,7 +37,7 @@ namespace LottoApp.Models.DomainModels
 			GameId = 0.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
-			RawResponse = string.Empty;
+			ErrorLog = string.Empty;
 		}
 		public GameDrawModel()
 		{
@@ -49,7 +49,7 @@ namespace LottoApp.Models.DomainModels
 			GameId = 0.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
-			RawResponse = "raw response here";
+			ErrorLog = "Space for errors";
 		}
 		public GameDrawModel(string rawResponse)
 		{
@@ -61,7 +61,7 @@ namespace LottoApp.Models.DomainModels
 			GameId = 0.ToString();
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
-			RawResponse = rawResponse;
+			ErrorLog = rawResponse;
 		}
 		public GameDrawModel(string rawResponse, List<DrawDTOModel> dtoList)
 		{
@@ -73,7 +73,7 @@ namespace LottoApp.Models.DomainModels
 			GameId = dtoList[0].DrawSystemId.ToString() ?? "0";
 			ShowSpecialResults = false;
 			IsEuroJackpot = false;
-			RawResponse = rawResponse;
+			ErrorLog = rawResponse;
 		}
 		public GameDrawModel(string rawResponse, DrawDTOModel dto)
 		{
@@ -85,7 +85,7 @@ namespace LottoApp.Models.DomainModels
 			GameId = dto.DrawSystemId.ToString() ?? "0";
 			ShowSpecialResults = dto.ShowSpecialResults;
 			IsEuroJackpot = dto.IsNewEuroJackpotDraw;
-			RawResponse = rawResponse;
+			ErrorLog = rawResponse;
 		}
 	}
 }

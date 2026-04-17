@@ -58,5 +58,27 @@ namespace LottoApp.Services.APIServices
 
 			return true;
 		}
+		
+		public static bool JsonToDto(string json, ref NumbersFrequencyDTOModel dto, ref NumbersFrequencyModel numbersFrequency)
+		{
+			try
+			{
+				dto = JsonSerializer.Deserialize<NumbersFrequencyDTOModel>(json);
+				if (dto == null)
+				{
+					json = "Bad api response could not map data:" + json;
+					numbersFrequency = new NumbersFrequencyModel(json);
+					return false;
+				}
+			}
+			catch (Exception ex)
+			{
+				json = ex.Message + " || json string: " + json;
+				numbersFrequency = new NumbersFrequencyModel(json);
+				return false;
+			}
+
+			return true;
+		}
 	}
 }
