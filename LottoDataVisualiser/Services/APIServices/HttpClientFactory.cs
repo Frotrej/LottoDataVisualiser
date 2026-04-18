@@ -43,6 +43,8 @@ namespace LottoApp.Services.APIServices
 		{
 			//apiKey from powershell, environmental variable, (setx MY_API_KEY "your key")
 			string apiKey = (Environment.GetEnvironmentVariable("MY_API_KEY"));
+			if (apiKey == null)
+				throw new InvalidOperationException("API key (MY_API_KEY) is not set in environment variables.");
 			httpClient.DefaultRequestHeaders.Add("secret", apiKey);
 
 			//base url as uri for http client to call api

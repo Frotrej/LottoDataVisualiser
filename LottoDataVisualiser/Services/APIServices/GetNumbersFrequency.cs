@@ -7,7 +7,7 @@ using System.Text;
 
 namespace LottoApp.Services.APIServices
 {
-	internal class GetNumbersFrequency
+	public class GetNumbersFrequency
 	{
 		public static async Task<NumbersFrequencyModel> Get()
 		{
@@ -31,4 +31,4 @@ namespace LottoApp.Services.APIServices
 		}
 	}
 }
-}
+

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LottoApp.Models.DomainModels
 {
-	internal class NumberFrequencyModel
+	public class NumberFrequencyModel
 	{
 		public int Number { get; set; }
 		public int NumberOfOccurrences { get; set; }
