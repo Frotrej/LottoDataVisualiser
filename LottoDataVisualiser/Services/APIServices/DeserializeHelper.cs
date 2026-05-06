@@ -64,7 +64,7 @@ namespace LottoApp.Services.APIServices
 			try
 			{
 				dto = JsonSerializer.Deserialize<NumbersFrequencyDTOModel>(json);
-				if (dto == null)
+				if (dto == null || dto.NumbersFrequency == null)
 				{
 					json = "Bad api response could not map data:" + json;
 					numbersFrequency = new NumbersFrequencyModel(json);
