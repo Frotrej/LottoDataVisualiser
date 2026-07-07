@@ -3,10 +3,15 @@
 
 
     <DataTemplate x:Key="GameTemplate">
-        <StackPanel Orientation="Vertical" Margin="5">
-            <TextBlock Text="{Binding GameName}" FontSize="20" Margin="0,0,10,0"/>
-            <TextBlock Text="{Binding DrawDate, StringFormat='{}{0:dd MMM yyyy}'}" FontStyle="Italic" FontSize="14"/>
-            <TextBlock Text="{Binding WinningNumbersText}" FontSize="14"/>
+        <StackPanel x:Name="GameContainer">
+            <StackPanel x:Name="GameInfo" Orientation="Vertical" Margin="5">
+                <TextBlock Text="{Binding GameName}" FontSize="20" Margin="0,0,10,0"/>
+                <TextBlock Text="{Binding DrawDate, StringFormat='{}{0:dd MMM yyyy}'}" FontStyle="Italic" FontSize="14"/>
+                <TextBlock Text="{Binding WinningNumbersText}" FontSize="14"/>
+            </StackPanel>
+            <StackPanel x:Name="Charts" Orientation="Vertical" Margin="5">
+
+            </StackPanel>
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>
